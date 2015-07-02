@@ -11,14 +11,14 @@ class ElasticsearchConnector
   end
 
   def initialize
-    Anything.create text: 'Quick brown fox'
-    Anything.create text: 'Fast black dogs'
-    Anything.create text: 'Swift green frogs'
+    Anything.create text: 'some sample text'
+    Anything.create text: 'more foo'
+    Anything.create text: 'abc and xyz'
   end
 
   def connect
     Anything.import
-    response = Article.search 'fox dogs'
+    response = Anything.search 'abc foo'
   end
 
 end
