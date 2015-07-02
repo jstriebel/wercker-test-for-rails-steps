@@ -1,0 +1,25 @@
+box: ruby:2.1.3
+
+services:
+  - mongo
+  - elasticsearch
+
+build:
+  steps:
+    - bundle-install
+    - script:
+        name: rspec
+        code: bundle exec rspec --pattern spec/*disconnected.rb
+    - jstriebel/elasticsearch-rails-env-var
+    - script:
+        name: rspec
+        code: bundle exec rspec spec/elasticsearch_connected.rb
+    - jstriebel/rails-mongoid-yml
+  # - script:
+  #     name: rspec
+  #     code: bundle exec rspec spec/mongo_connected_with_default_db_name.rb
+    - jstriebel/rails-mongoid-yml:
+        db_name: testable_db_name
+  # - script:
+  #     name: rspec
+  #     code: bundle exec rspec spec/mongo_connected_with_set-db_name.rb
