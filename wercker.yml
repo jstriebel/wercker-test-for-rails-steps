@@ -17,7 +17,7 @@ build:
     - jstriebel/rails-mongoid-yml
     - script:
         name: rspec
-        code: export MONGOID_ENV='test'; bundle exec rspec spec/mongoid_connected.rb
+        code: bundle exec rspec spec/mongoid_connected.rb
     - jstriebel/rails-mongoid-yml:
         db_name: testable_db_name
     - script:

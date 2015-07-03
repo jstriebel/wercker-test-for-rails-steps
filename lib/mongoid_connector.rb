@@ -1,4 +1,5 @@
 require 'mongoid'
+require 'rails/mongoid'
 
 class MongoidConnector
   class Anything
