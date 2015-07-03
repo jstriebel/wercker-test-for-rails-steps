@@ -15,11 +15,11 @@ build:
         name: rspec
         code: bundle exec rspec spec/elasticsearch_connected.rb
     - jstriebel/rails-mongoid-yml
-  # - script:
-  #     name: rspec
-  #     code: bundle exec rspec spec/mongo_connected_with_default_db_name.rb
+    - script:
+        name: rspec
+        code: bundle exec rspec spec/mongoid_connected.rb
     - jstriebel/rails-mongoid-yml:
         db_name: testable_db_name
-  # - script:
-  #     name: rspec
-  #     code: bundle exec rspec spec/mongo_connected_with_set-db_name.rb
+    - script:
+        name: rspec
+        code: bundle exec rspec spec/mongoid_connected.rb
