@@ -8,18 +8,18 @@ build:
   steps:
     - bundle-install
     - script:
-        name: rspec
+        name: test: all DBs disconnected
         code: bundle exec rspec --pattern spec/*disconnected.rb
     - jstriebel/elasticsearch-rails-env-var
     - script:
-        name: rspec
+        name: test: elasticsearch connected
         code: bundle exec rspec spec/elasticsearch_connected.rb
     - jstriebel/rails-mongoid-yml
     - script:
-        name: rspec
+        name: test: mongo connected
         code: bundle exec rspec spec/mongoid_connected.rb
     - jstriebel/rails-mongoid-yml:
         db_name: testable_db_name
     - script:
-        name: rspec
+        name: test: mongo still connected
         code: bundle exec rspec spec/mongoid_connected.rb
